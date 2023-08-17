@@ -4,9 +4,426 @@
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>Responsive Portfolio Website</title>
-     <link rel="stylesheet" type="text/css" href="style.css">
      <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">   
 </head>
+     <style>
+          @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@10..48,300;10..48,400;10..48,500;10..48,600&family=Poppins:wght@300;400;500;600&display=swap');
+*{
+     padding: 0;
+     margin: 0;
+     box-sizing: border-box;
+     text-decoration: none;
+     list-style: none;
+     scroll-behavior: smooth;
+     font-family: 'Poppins', sans-serif;
+}
+:root{
+     --bg-color: #2a2a2a;
+     --second-bg-color: #202020;
+     --text-color: #fff;
+     --second-color: #ccc;
+     --main-color: #05b4ff;
+     --big-font: 5rem;
+     --h2-font: 3rem;
+     --p-font: 1.1rem;
+}
+body{
+     background: var(--bg-color);
+     color: var(--text-color);
+}
+header {
+     position: fixed;
+     width: 100%;
+     top: 0;
+     right: 0;
+     z-index: 1000;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     background: transparent;
+     padding: 22px 15%;
+     border-bottom: 1px solid transparent;
+     transition: all 0.45s ease;
+}
+.logo{
+     color: var(--main-color);
+     font-size: 35px;
+     font-weight: 700;
+     letter-spacing: 0.9px;
+}
+.span{
+     color: var(--text-color);
+}
+.navList{
+     display: flex;
+}
+.navList a{
+     color: var(--second-color);
+     font-size: 17px;
+     font-weight: 500px;
+     margin: 0 25px;
+     transition: all 0.45s ease;
+}
+.navList a:hover{
+     color: var(--main-color);
+}
+.navList a.active{
+     color: var(--main-color);
+}
+#menu-icon{
+     font-size: 35px;
+     color: var(--text-color);
+     z-index: 1000;
+     cursor: pointer;
+     margin-left: 25px;
+     display: none;
+}
+section{
+     padding: 160px 15% 120px;
+}
+.home{
+     position: relative;
+     height: 100vh;
+     width: 100%;
+     background-image: url(background.jpg);
+     background-size: cover;
+     background-position: center;
+     display: flex;
+     align-items: center;
+     justify-content: flex-start;
+}
+.slide{
+     margin-bottom: 20px;
+}
+.one{
+     display: inline-block;
+     margin-right: 15px;
+     padding: 0 15px;
+     line-height: 32px;
+     font-size: 20px;
+     font-weight: 500;
+     border-radius: 5px;
+     background: var(--main-color);
+     color: var(--text-color);
+}
+.two{
+     display: inline-block;
+     color: var(--second-color);
+     font-size: 25px;
+     font-weight: 500;
+}
+.home-text h1{
+     font-size: var(--big-font);
+     font-weight: 700;
+     color: var(--text-color);
+     line-height: 1.4;
+     margin: 0 0 8px;
+}
+.home-text h3{
+     color: var(--main-color);
+     margin: 0 0 35px;
+     font-size: 3rem;
+     font-weight: 700;
+     line-height: 1.1;
+}
+.home-text p{
+     color: var(--second-color);
+     font-size: var(--p-font);
+     line-height: 1.8;
+     margin-bottom: 40px;
+}
+.button{
+     display: inline-block;
+     align-items: center;
+     justify-content: center;
+}
+.btn{
+     display: inline-block;
+     padding: 12px;
+     background: var(--main-color);
+     border-radius: 5px;
+     color: var(--text-color);
+     font-size: 1rem;
+     letter-spacing: 1px;
+     font-weight: 500;
+     transition: all 0.45s ease;
+}
+.btn:hover{
+     transform: scale(0.9);
+}
+.about{
+     display: grid;
+     grid-template-columns: repeat(2, 1fr);
+     align-items: center;
+     gap: 1.5rem;
+}
+.about-img img{
+     max-width: 530px;
+     height: auto;
+     width: 100%;
+     border-radius: 5px;
+}
+.about-text h2{
+     font-size: var(--h2-font);
+     line-height: 1;
+     color: var(--main-color);
+}
+.about-text h4{
+     font-size: 24px;
+     font-weight: 600;
+     color: var(--text-color);
+     line-height: 1.7;
+     margin: 1px 0 15px;
+}
+.about-text p{
+     color: var(--second-color);
+     font-size: 1.2rem;
+     line-height: 1.8;
+     margin-bottom: 1rem;
+}
+.about-text ul li {
+     margin: 0.5rem 0rem;
+}
+.about-text ul li span:nth-child(1) {
+     color: var(--second-color);
+     font-size: 20px;
+     line-height: 1.8;
+     margin-left: 1.0rem;
+}
+.about-text ul li span:nth-child(2) {
+     font-size: 20px;
+}
+.projectNum {
+     margin: 1rem 0rem;
+     font-size: 25px;
+}
+.resume {
+     padding: 2rem 0rem;
+}
+.resume .resumeHeading {
+     font-size: var(--big-font);
+     line-height: 0.9;
+     color: var(--main-color);
+     align-items: center;
+}
+.resume .desc {
+     color: var(--second-color);
+     font-size: 1.7rem;
+}
+.works {
+     display: grid;
+     grid-template-columns: repeat(2, 1fr);
+     gap: 1rem;
+     margin: 1.2rem 0rem;
+}
+.works .card {
+     padding: 1.5rem;
+     height: 200px;
+     border-radius: 0.9rem;
+     background-color: #34495e;
+     cursor: pointer;
+     transition: all 0.5s ease-in-out;
+}
+.works .card:hover {
+     box-shadow: 0 5px 5px #05b4ff, 0 10px 10px #05b4ff;
+}
+.works .card .data {
+     color: #f857a6;
+     font-weight: 500;
+     font-size: 1rem;
+}
+.works .cards h2 {
+     font-weight: 400;
+     margin: 0.5rem 0rem;
+}
+.works .card .college {
+     color: #f857a6;
+}
+.works .card p {
+     color: #d3d3d3;
+     margin-top: 0.6rem;
+}
+.resume .button{
+     justify-content: center;
+     display: inline-flex
+}
+.skills{
+     padding: 5rem 0rem;
+}
+.skills h1{
+     font-size: 60px;
+     color: var(--main-color);
+}     
+.skills .container{
+     position: relative;
+     max-width: 1000px;
+     width: 100%;
+     margin: 0 15px;
+     padding: 40px 20px;
+     border-radius: 7px;
+}
+.container .skillBox{
+     width: 100%;
+     margin-top: 90px 0;
+}
+.skillBox .title{
+     display: block;
+     font-size: 20px;
+     font-weight: 600;
+     color: var(--second-color);
+}
+.skillBox .skillBar{
+     height: 8px;
+     width: 100%;
+     border-radius: 6px;
+     margin-top: 30px;
+     background: #05b4ff;
+}
+.skillBar .skillPer{
+     position: relative;
+     display: block;
+     width: 90%;
+     height: 100%;
+     border-radius: 6px;
+     background: #f857a6;
+     animation: progress 0.4s ease-in-out forwards;
+     opacity: 0;
+}
+.skillPer.html{
+     width: 90%;
+     animation-delay: 0.2s;
+}
+.skillPer.css{
+     width: 80%;
+     animation-delay: 0.1s;
+}
+.skillPer.js{
+     width: 70%;
+     animation-delay: 0.3s;
+}
+.skillPer.reactjs{
+     width: 60%;
+     animation-delay: 0.2s;
+}
+.skillPer.nodejs{
+     width: 50%;
+     animation-delay: 0.1s;
+}
+.skillPer.mongobd{
+     width: 35%;
+     animation-delay: 0.2s;
+}
+@keyframes progress{
+     0%{
+          width: 0;
+          opacity: 1;
+     }
+     100%{
+          opacity: 1;
+     }
+}
+.skillPer .tooltip{
+     position: absolute;
+     right: -14px;
+     top: -28px;
+     font-size: 9px;
+     color: #fff;
+     font-weight: 500;
+     border-radius: 3px;
+     padding: 2px 6px;
+     background: #f857a6;
+}
+.tooltip::before{
+     content: "";
+     position: absolute;
+     left: 50%;
+     bottom: -2px;
+     height: 10px;
+     width: 10px;
+     z-index: -1;
+     background: #f857a6;
+     transform: translateX(-50%) rotateX(45deg);
+}
+.service{
+     box-shadow: inset -10px -10px 20px #05b4ff,inset 10px 10px 20px #05b4ff;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     height: 350px;
+     padding: 2rem;
+     background-color: #34495e;
+     background-image: url(bg.png);
+     background-size: cover;
+     background-repeat: no-repeat;
+     border-radius: 0.9rem;
+     background-position: center;
+}
+.service h1{
+     text-align: center;
+     font-size: 60px;
+     color: #f857a6;
+}
+.service p{
+     font-size: 2rem;
+     margin: 0.9rem 0rem;
+     color: black;
+}
+.contactForm{
+     padding-top: 8rem;
+}
+.contactText h1{
+     font-size: 60px;
+     color: #05b4ff;
+}
+.contactText p{
+     color: #d3d3d3;
+     font-size: 2rem;
+     margin: 1rem 0rem;
+}
+form{
+     max-width: 80%;
+     margin: 0 auto;
+     background: #34495e;
+     border-radius: 1rem ;
+     text-align: center;
+}
+form input{
+     padding: 1rem 4rem;
+     border-radius: 40px;
+     outline: none;
+     border: none;
+     margin: 1rem 0rem;
+}
+.inputGroup span{
+     display: block;
+     color: aqua;
+}
+@media  (max-width:780px){ 
+     .btn{
+          margin-bottom: 1rem;
+     }
+}
+@media screen (max-width:750px) {
+     .hero{
+          gap: 3rem;
+          flex-direction: column-reverse;
+     }
+     .navLinks{
+          display: none;
+     }
+     .aboutMe{
+          flex-direction: column;
+     }
+     .works{
+          grid-template-columns: repeat(1, 1fr);
+     }
+     .aboutMeImage img{
+          width: 400px;
+     }
+}
+
+     </style>
 <body>
      <header>
           <a href="#" class="logo">Devlo<span>pe</span>r...</a>
